@@ -11,4 +11,4 @@
 /build
 /captures
 .externalNativeBuild
-apikey.properties
+/apiKey.properties
