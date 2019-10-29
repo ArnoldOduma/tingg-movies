@@ -38,8 +38,20 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:elevation="10dp">
+        android:elevation="10dp"
+        android:layout_marginBottom="60dp">
 
     </FrameLayout>
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/desc_image_back"
+        android:layout_marginBottom="10dp"
+        android:elevation="1000dp"
+        android:text="Back"
+        android:textColor="@color/colorCellWhite"></Button>
 
 </RelativeLayout>

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -24,13 +25,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    @BindView(R.id.btnBack)
+    Button mBack;
     private GridView mMoviesGridView ;
     public static Movies movieDetails;
 
@@ -47,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
     private MoviesAdapter mAdapter;
     private GridView gridView;
 
+    Fragment movieDetailsFragment = new MovieDetailFragment();
+    FragmentManager fm = getSupportFragmentManager();
 
 
 
@@ -55,17 +61,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
-
+        ButterKnife.bind(this);
+        mBack.setVisibility(View.INVISIBLE);
         adapterString = new ArrayAdapter<>(this, R.layout.movie_view,moviesArray);
-//        gridView = findViewById(R.id.grid);
-//        gridView.setAdapter(adapterString);
         final MoviesAdapter moviesAdapter = new MoviesAdapter(this,moviesArrayList);
-
-
-
         getPopularMovies();
         mMoviesGridView = findViewById(R.id.grid);
         mMoviesGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -74,19 +73,31 @@ public class MainActivity extends AppCompatActivity {
 
                 Movies movies = moviesArrayList.get(position);
                 movieDetails = moviesArrayList.get(position);
-
-                Fragment movieDetailsFragment = new MovieDetailFragment();
-                FragmentManager fm = getSupportFragmentManager();
+                mBack.setVisibility(View.VISIBLE);
                 FragmentTransaction transaction = fm.beginTransaction();
                 transaction.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out);
                 transaction.replace(R.id.fragment_container,movieDetailsFragment);
                 transaction.commit();
                 String overView = moviesArrayList.get(position).getOverview();
-                Toast.makeText(MainActivity.this,"Overview: "+overView,Toast.LENGTH_SHORT).show();
-//                moviesAdapter.notifyDataSetChanged();
             }
         });
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out);
+        if (view == mBack){
+            if (movieDetailsFragment.isAdded()){
+                transaction.remove(movieDetailsFragment);
+                mBack.setVisibility(View.INVISIBLE);
+            }else {
+                transaction.add(R.id.fragment_container, movieDetailsFragment);
+                mBack.setVisibility(View.VISIBLE);
+            }
+            transaction.commit();
+        }
     }
 
 
