@@ -39,22 +39,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static Movies movieDetails;
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    private static String[] moviesArray = new String[]{"jonnas", "Star wars", "Airbender","mozzat","jonnas", "Star wars", "Airbender","mozzat"};
-
     private static List<Movies> moviesArrayList = new ArrayList<>();
-    private Integer[] arrayInt = new Integer[]{
-            0,1,2,3,4,5,6,7,8,9
-    };
 
-    private ArrayAdapter<String> adapterString;
-    private ArrayAdapter<Integer> adapterInteger;
     private MoviesAdapter mAdapter;
     private GridView gridView;
 
     Fragment movieDetailsFragment = new MovieDetailFragment();
     FragmentManager fm = getSupportFragmentManager();
-
-
 
 
     @Override
@@ -63,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         mBack.setVisibility(View.INVISIBLE);
-        adapterString = new ArrayAdapter<>(this, R.layout.movie_view,moviesArray);
+        mBack.setOnClickListener(this);
         final MoviesAdapter moviesAdapter = new MoviesAdapter(this,moviesArrayList);
         getPopularMovies();
         mMoviesGridView = findViewById(R.id.grid);
@@ -87,16 +78,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         FragmentTransaction transaction = fm.beginTransaction();
-        transaction.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out);
         if (view == mBack){
-            if (movieDetailsFragment.isAdded()){
                 transaction.remove(movieDetailsFragment);
                 mBack.setVisibility(View.INVISIBLE);
-            }else {
-                transaction.add(R.id.fragment_container, movieDetailsFragment);
-                mBack.setVisibility(View.VISIBLE);
-            }
-            transaction.commit();
+                transaction.commit();
         }
     }
 
