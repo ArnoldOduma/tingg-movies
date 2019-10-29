@@ -9,9 +9,12 @@ This is a movies application that gets movies from an api and displays them on t
 
   NB: The images from the api do not display
 
-  <img src="./readmeAssets/home.JPG" height="400px"/>
-  <img src="./readmeAssets/details.JPG" height="400px"/>
-  <img src="./readmeAssets/filter.JPG" height="400px"/>
+
+  <div style="display: flex;justify-content: center;flex-wrap: wrap;">
+    <img src="./readmeAssets/home.JPG" height="400px"/>
+    <img src="./readmeAssets/details.JPG" height="400px"/>
+    <img src="./readmeAssets/filter.JPG" height="400px"/>
+  </div>
 
 ## Author
 
