@@ -8,6 +8,10 @@ This is a movies application that gets movies from an api and displays them on t
 ## You can find an APK directory containing an apk file to install from the root directory of the application.
 
   NB: The images from the api do not display
+  
+  <img src="./details.JPG" height="400px"/>
+  
+  <img src="./home.JPG" height="400px"/>
 
 ## Author
 
