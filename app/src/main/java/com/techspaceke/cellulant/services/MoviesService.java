@@ -24,10 +24,10 @@ import okhttp3.Response;
 
 public class MoviesService {
 
-    public static void getPopularMovies(Callback callback) {
+    public static void getMovies(String category,Callback callback) {
         OkHttpClient client = new OkHttpClient.Builder().build();
 
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.MOVIES_DB_BASE_URL+"/popular").newBuilder();
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.MOVIES_DB_BASE_URL+category).newBuilder();
         urlBuilder.setQueryParameter("api_key", BuildConfig.API_kEY);
         urlBuilder.addQueryParameter("language","en-US");
         String url = urlBuilder.build().toString();

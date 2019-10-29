@@ -7,10 +7,21 @@
     android:background="@color/colorCellDark"
     tools:context=".ui.MainActivity">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/titleTextView"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:outlineAmbientShadowColor="@color/colorCellPurple"
+        ></ProgressBar>
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/popular"
@@ -20,15 +31,21 @@
 
     <GridView
         android:id="@+id/grid"
-        android:numColumns="3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/textView"
-        android:layout_margin="5dp"
+        android:layout_below="@id/titleTextView"
+        android:layout_alignBottom="@+id/fragment_container"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:horizontalSpacing="10dp"
+        android:numColumns="3"
         android:verticalSpacing="10dp">
 
     </GridView>
+
 
     <FrameLayout
         android:id="@+id/fragment_container"
@@ -39,19 +56,17 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:elevation="10dp"
-        android:layout_marginBottom="60dp">
+        >
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_marginTop="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/back_arrow_64"
+            ></Button>
 
     </FrameLayout>
-    <Button
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/desc_image_back"
-        android:layout_marginBottom="10dp"
-        android:elevation="1000dp"
-        android:text="Back"
-        android:textColor="@color/colorCellWhite"></Button>
+
+
 
 </RelativeLayout>

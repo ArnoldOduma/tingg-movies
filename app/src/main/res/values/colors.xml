@@ -3,11 +3,13 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-
-     <color name="colorCellWhite">#ffffff</color>
+    <color name="colorCellWhite">#ffffff</color>
     <color name="colorCellGreen">#3BD23D</color>
     <color name="colorCellDark">#0d171a</color>
+    <color name="colorCellDarkLight">#000000d5</color>
     <color name="colorCellPurple">#5d538b</color>
+    <color name="colorCellPurpleLight">#5d538b60</color>
+
     <color name="colorCellPink">#f65058</color>
     <color name="colorCellYellow">#ffc915</color>
     <color name="colorCellBlue">#6cd1ef</color>
