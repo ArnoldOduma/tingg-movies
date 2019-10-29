@@ -52,25 +52,27 @@ public class MoviesAdapter extends BaseAdapter {
             view = layoutInflater.inflate(R.layout.movie_layout, null);
             final ImageView imageView = (ImageView)view.findViewById(R.id.movie_thumb);
             final TextView title = (TextView)view.findViewById(R.id.movie_title);
-            final ViewHolder viewHolder = new ViewHolder(title,title,imageView);
+            final TextView rating = (TextView)view.findViewById(R.id.movie_Rating);
+            final ViewHolder viewHolder = new ViewHolder(title,rating,imageView);
             view.setTag(viewHolder);
         }
         final ViewHolder viewHolder = (ViewHolder)view.getTag();
         ImageView mMovieThumb = view.findViewById(R.id.movie_thumb);
         Picasso.get().load(movies.getPosterPath()).into(viewHolder.imageViewCoverArt);
         viewHolder.nameTextView.setText(movies.getOriginalTitle());
+        viewHolder.ratingTextView.setText("Rating: "+movies.getVoteAverage().toString());
 
         return view;
     }
 
     private class ViewHolder implements View.OnClickListener {
         private final TextView nameTextView;
-        private final TextView authorTextView;
+        private final TextView ratingTextView;
         private final ImageView imageViewCoverArt;
 
-        public ViewHolder(TextView nameTextView, TextView authorTextView, ImageView imageViewCoverArt) {
+        public ViewHolder(TextView nameTextView, TextView ratingTextView, ImageView imageViewCoverArt) {
             this.nameTextView = nameTextView;
-            this.authorTextView = authorTextView;
+            this.ratingTextView = ratingTextView;
             this.imageViewCoverArt = imageViewCoverArt;
         }
 

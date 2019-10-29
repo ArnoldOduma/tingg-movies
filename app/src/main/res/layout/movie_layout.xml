@@ -20,10 +20,20 @@
         android:id="@+id/movie_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
+        android:layout_gravity="left"
         android:layout_marginTop="-100px"
-        android:gravity="center_horizontal"
+        android:gravity="left"
         android:text="Hello"
+        android:paddingHorizontal="5dp"
+        android:textSize="15sp" />
+    <TextView
+        android:id="@+id/movie_Rating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="0px"
+        android:gravity="left"
+        android:text="Rating"
         android:paddingHorizontal="5dp"
         android:textSize="15sp" />
 

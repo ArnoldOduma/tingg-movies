@@ -6,9 +6,44 @@
     tools:context=".ui.MovieDetailFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginHorizontal="10dp"
+        android:orientation="vertical"
+        android:background="@drawable/desc_back"
+        android:paddingTop="100dp"
+        android:paddingHorizontal="30dp">
+
+        <TextView
+            android:id="@+id/desc_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_blank_fragment"
+            android:textSize="20sp"
+            android:textColor="@color/colorCellWhite"/>
+        <TextView
+            android:id="@+id/desc_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_blank_fragment"
+            android:textColor="@color/colorCellWhite"/>
+        <TextView
+            android:id="@+id/desc_release"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_blank_fragment"
+            android:textColor="@color/colorCellWhite"/>
+        <TextView
+            android:id="@+id/desc_plot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_blank_fragment"
+            android:textColor="@color/colorCellWhite" />
+    </LinearLayout>
+
 
 </FrameLayout>

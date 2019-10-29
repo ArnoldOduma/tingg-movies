@@ -32,6 +32,7 @@ import okhttp3.ResponseBody;
 public class MainActivity extends AppCompatActivity {
 
     private GridView mMoviesGridView ;
+    public static Movies movieDetails;
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private static String[] moviesArray = new String[]{"jonnas", "Star wars", "Airbender","mozzat","jonnas", "Star wars", "Airbender","mozzat"};
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         adapterString = new ArrayAdapter<>(this, R.layout.movie_view,moviesArray);
 //        gridView = findViewById(R.id.grid);
 //        gridView.setAdapter(adapterString);
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView parent, View view, int position, long id) {
 
                 Movies movies = moviesArrayList.get(position);
+                movieDetails = moviesArrayList.get(position);
 
                 Fragment movieDetailsFragment = new MovieDetailFragment();
                 FragmentManager fm = getSupportFragmentManager();
@@ -114,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this,"Movies fetched successfully",Toast.LENGTH_LONG).show();
                             mAdapter = new MoviesAdapter(getApplicationContext(), moviesArrayList);
                             mMoviesGridView = findViewById(R.id.grid);
-
                             mMoviesGridView.setAdapter(mAdapter);
 
                             if(jsonData.length() < 1){
