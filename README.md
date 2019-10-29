@@ -9,9 +9,9 @@ This is a movies application that gets movies from an api and displays them on t
 
   NB: The images from the api do not display
 
-  <img src="./details.JPG" height="400px"/>
-
-  <img src="./home.JPG" height="400px"/>
+  <img src="./readmeAssets/home.JPG" height="400px"/>
+  <img src="./readmeAssets/details.JPG" height="400px"/>
+  <img src="./readmeAssets/filter.JPG" height="400px"/>
 
 ## Author
 
@@ -66,7 +66,7 @@ This project is mantained by:
   - [Delani Studio](https://github.com/ArnoldOduma/Delani_Studio) - A front end of a studio website
 
   - [Triangle Tracker](https://github.com/ArnoldOduma/triangle-tracker) - Tracks what type a triangle is by checking its length width and height
- 
+
   - [portfolio](https://github.com/ArnoldOduma/portfolio) - My portfolio website
 
 
