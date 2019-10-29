@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -85,6 +86,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    Handler handler = new Handler();
+    Runnable updateData = new Runnable() {
+        @Override
+        public void run() {
+            getPopularMovies();
+        }
+    };
 
 
     public void getPopularMovies(){
@@ -94,7 +102,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 MainActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(MainActivity.this,"Error getting Movies",Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this,"Error getting Movies!! Please check your internet connection\n Retrying in 1s",Toast.LENGTH_LONG).show();
+                        handler.postDelayed(updateData,3000);
                     }
                 });
                 e.printStackTrace();
@@ -116,7 +125,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             mMoviesGridView.setAdapter(mAdapter);
 
                             if(jsonData.length() < 1){
-                                Toast.makeText(MainActivity.this,"Error fetching Movies",Toast.LENGTH_LONG).show();
+                                Toast.makeText(MainActivity.this,"Error fetching Movies!! retrying in 1s",Toast.LENGTH_LONG).show();
+
                             }
                         }
 
